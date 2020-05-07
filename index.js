@@ -3,6 +3,9 @@ const exphbs = require('express-handlebars');
 
 const app = express();
 
+const Home = require('./routers/home.router');
+const Register = require('./routers/register.router');
+
 app.engine('hbs', exphbs({
     layoutsDir: 'views/_layouts',
     defaultLayout: 'main',
@@ -11,17 +14,9 @@ app.engine('hbs', exphbs({
 
 app.set('view engine', 'hbs');
 
-app.get('/index.html', function (req, res) {
-  res.render('home');
-})
+app.use('/index.html', Home);
+app.use('/reg.html', Register);
 
-app.get('/reg.html', function (req, res) {
-  res.render('register');
-})
-
-app.get('/reg', function (req, res) {
-  res.render('registered');
-})
 
 // app.use('/', require('./routes/home.router'));
 

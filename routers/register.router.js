@@ -1,18 +1,16 @@
 const express = require('express');
-const route = express.Router();
+const router = express.Router();
 
 
-route.get('/', function(req, res)
+router.get('/', function(req, res)
 {
-    res.render('register', {title: "Register", layout: false});
+    res.render('register', {title: "register"});
 }) 
 
 
-route.post('/', function(req, res)
+router.post('/', function(req, res)
 {
-    let {name, email} = req.body;
-
-    res.send(`Wellcome ${name} (${email})`);
+    res.send('Welcome test te@t.c');
 })
 
-module.exports = route;
+module.exports = router;
